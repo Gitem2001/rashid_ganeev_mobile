@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -32,20 +33,48 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   String FirstName = '';
-  String LastName =  '';
+  String LastName  = '';
   void update_first_name(first_name) {
     FirstName = first_name;
   }
   void update_last_name(last_name) {
     LastName = last_name;
   }
-  String click_final_button() {
-    return FirstName + ' ' + LastName;
+ void click_final_button() {
+    if ((FirstName.isNotEmpty) & (LastName.isNotEmpty)){
+      _showDialog('Welcome: ' + FirstName + ' ' + LastName, 'next');
+    }
+    else{
+      return _showDialog('Fill your First Name and Last Name', 'okay');
+    }
   }
 
   void update_image(){
-    LastName = 'B';
+
   }
+  void _showDialog(text_input, state_input) {
+    // flutter defined function
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        // return object of type Dialog
+        return AlertDialog(
+          title: new Text("Meow"),
+          content: new Text(text_input),
+          actions: <Widget>[
+            // usually buttons at the bottom of the dialog
+            new FloatingActionButton(
+              child: new Text(state_input),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
 
