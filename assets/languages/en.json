@@ -1,0 +1,9 @@
+{
+  "photo_note" : "Set new photo",
+  "first_name_note" : "First name",
+  "description_enter_forms": "Enter your name and add an optional profile photo",
+  "description_bio": "Add a few lines about yourself for future friends",
+  "last_name_note" : "Last name",
+  "bio_note" : "Bio",
+  "title_page": "Registration"
+}

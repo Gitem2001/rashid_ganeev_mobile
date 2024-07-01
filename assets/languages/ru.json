@@ -1,0 +1,9 @@
+{
+  "photo_note" : "Загрузить фото",
+  "first_name_note" : "Имя",
+  "description_enter_forms": "Введите имя и фамилию, а также установите фото",
+  "description_bio": "Расскажите о себе для Ваших будущих друзей",
+  "last_name_note" : "Фамилия",
+  "bio_note" : "Описание",
+  "title_page": "Регистрация"
+}

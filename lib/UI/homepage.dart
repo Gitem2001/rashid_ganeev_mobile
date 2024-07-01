@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import '../generated/locale_keys.g.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -10,6 +12,14 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  void button_function() {
+    if (context.locale == const Locale("ru")) {
+      context.setLocale(const Locale("en"));
+    } else {
+      context.setLocale(const Locale("ru"));
+    }
+  }
+
   String FirstName = '';
   String LastName  = '';
   void update_first_name(first_name) {
@@ -55,7 +65,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.greenAccent,
@@ -71,8 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     backgroundImage:AssetImage('images/logo.png')
                 )
             ),
-            const Text(
-              'Set new photo',
+           Text(LocaleKeys.photo_note.tr(),
             ),
             TextFormField(
               onChanged: (text) {
@@ -80,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               decoration: const InputDecoration(
                 border: UnderlineInputBorder(),
-                labelText: 'First Name',
+                labelText: "FirstName",
               ),
             ),
             TextFormField(
@@ -89,10 +97,10 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               decoration: const InputDecoration(
                 border: UnderlineInputBorder(),
-                labelText: 'Last Name',
+                labelText: "Last name",
               ),
             ),
-            const Text('Enter your name and add an optional profile photo'),
+            Text(LocaleKeys.description_enter_forms.tr()),
             TextFormField(
 
               decoration: const InputDecoration(
@@ -100,13 +108,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 labelText: 'Bio',
               ),
             ),
-            const Text('Add a few lines about yourself for your future friends'),
+            Text(LocaleKeys.description_bio.tr()),
             FloatingActionButton(
               onPressed: click_final_button,
               tooltip: 'Next step to your journey',
               child: Icon(Icons.done),
             ),
-
+            TextButton(onPressed: button_function, child: Text(context.locale.toString(), style: const TextStyle(fontSize: 17),)),
           ],
         ),
       ),
